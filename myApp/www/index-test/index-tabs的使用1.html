@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="cordova.js"></script>-->
+</head>
+<body ng-app="myApp" ng-controller="firstCtrl">
+   <ion-header-bar class="bar-positive">
+     <h1 class="title">ion-tabs</h1>
+   </ion-header-bar>
+   <ion-tabs >
+     <ion-tab title="tab1">
+       <ion-view >
+         <ion-content class="calm-bg">
+           tab 1 content
+         </ion-content>
+       </ion-view>
+     </ion-tab>
+     <ion-tab title="tab2">
+       <ion-view >
+         <ion-content class="royal-bg">
+           tab 2 content
+         </ion-content>
+       </ion-view>
+     </ion-tab>
+     <ion-tab title="tab3">
+       <ion-view >
+         <ion-content class="assertive-bg">
+           tab 3 content
+         </ion-content>
+       </ion-view>
+     </ion-tab>
+   </ion-tabs>
+</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', ['ionic']);
+
+    app.config(function($stateProvider, $urlRouterProvider) {
+
+      $stateProvider
+        .state('map', {
+          url: "/map",
+          templateUrl: "templates/map.html"
+        })
+        .state('music', {
+          url: "/music",
+          templateUrl: "templates/music.html"
+        })
+        
+       $urlRouterProvider.otherwise("/map");
+
+    })
+
+    app.controller('firstCtrl', function($scope, $state) {
+      console.log($state);
+      $state.go('map');
+
+      $scope.reload = function() {
+        console.log("reload");
+      }
+    })
+
+
+
+</script>
+
+
+</html>

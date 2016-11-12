@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="cordova.js"></script>-->
+</head>
+<body ng-app="myApp" ng-controller="firstCtrl">
+   
+   <ion-tabs class="tabs-positive tabs-icon-top">
+     <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
+       <ion-view >
+         <ion-header-bar class="bar-positive">
+           <h1 class="title">Home tab</h1>
+         </ion-header-bar>
+         <ion-content class="padding">
+           Home content
+         </ion-content>
+       </ion-view>
+     </ion-tab>
+     <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline" badge="12">
+       <ion-view >
+         <ion-header-bar class="bar-positive">
+           <h1 class="title">About tab</h1>
+         </ion-header-bar>
+         <ion-content class="padding">
+           About content
+         </ion-content>
+       </ion-view>
+     </ion-tab>
+     <ion-tab title="Setting" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+       <ion-view >
+         <ion-header-bar class="bar-positive">
+           <h1 class="title">Setting tab</h1>
+         </ion-header-bar>
+         <ion-content class="padding">
+           Setting content
+         </ion-content>
+       </ion-view>
+     </ion-tab>
+   </ion-tabs>
+</body>
+<script type="text/javascript">
+    var app = angular.module('myApp', ['ionic']);
+
+    app.config(function($stateProvider, $urlRouterProvider) {
+
+      $stateProvider
+        .state('map', {
+          url: "/map",
+          templateUrl: "templates/map.html"
+        })
+        .state('music', {
+          url: "/music",
+          templateUrl: "templates/music.html"
+        })
+        
+       $urlRouterProvider.otherwise("/map");
+
+    })
+
+    app.controller('firstCtrl', function($scope, $ionicTabsDelegate, $interval) {
+      $scope.idx = 0;
+     
+     //设置2s自动定位到下一个tab
+     /* $interval(function() {
+        
+        $scope.idx = ($scope.idx + 1) % 3;
+        console.log($scope.idx);
+        $ionicTabsDelegate.select($scope.idx);
+      }, 2000);
+      */
+    })
+
+
+
+</script>
+
+
+</html>

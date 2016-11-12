@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+   
+    <!-- your app's js -->
+    <script src="js/demo1_app.js"></script>
+    <script src="js/demo1_controllers.js"></script>
+    
+  </head>
+  <body ng-app="demo1_app">
+    <ion-side-menus>
+      <ion-side-menu-content>
+        <ion-header-bar class="bar-positive">
+          
+          <h1 class="title">ion-side-menu-content</h1>
+        </ion-header-bar>
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+      <ion-side-menu side="left" width="200">
+        左侧区域
+      </ion-side-menu>
+      
+    </ion-side-menus>
+  </body>
+</html>

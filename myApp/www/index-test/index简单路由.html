@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="cordova.js"></script>-->
+</head>
+<body ng-app="myApp" ng-controller="firstCtrl">
+    <a class="button" ui-sref="map">点击map</a>
+    <a class="button" ui-sref="music">点击music</a>
+    <a class="button" ng-click="reload()">重载</a>
+    <div ui-view></div>
+
+    <script type="text/javascript">
+    var app = angular.module('myApp', ['ionic']);
+
+    app.config(function($stateProvider, $urlRouterProvider) {
+
+      $stateProvider
+        .state('map', {
+          url: "/map",
+          templateUrl: "templates/map.html"
+        })
+        .state('music', {
+          url: "/music",
+          templateUrl: "templates/music.html"
+        })
+        
+       $urlRouterProvider.otherwise("/map");
+
+    })
+
+    app.controller('firstCtrl', function($scope, $state) {
+      console.log($state);
+      $state.go('map');
+
+      $scope.reload = function() {
+        console.log("reload");
+      }
+    })
+
+
+
+</script>
+</body>
+
+
+</html>

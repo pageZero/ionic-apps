@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+   
+    <!-- your app's js -->
+    <script src="js/demo1_app.js"></script>
+    <script src="js/demo1_controllers.js"></script>
+    
+  </head>
+  <body ng-app="demo3-list" ng-controller="listCtrl">
+    <ion-header-bar>
+      <h1 class="title">列表</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item collection-repeat="item in items">
+          {{item}}
+          <ion-option-button class="button-positive"></ion-option-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </body>
+  <script type="text/javascript">
+    angular.module('demo3-list',['ionic'])
+    .controller('listCtrl', function($scope) {
+      $scope.items = [];
+      for(var i = 0; i < 5000; i++)
+        $scope.items.push(["item",i+1].join(""));
+    })
+  </script>
+</html>

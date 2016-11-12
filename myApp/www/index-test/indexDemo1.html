@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+   
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+</head>
+<body>
+
+    <!--使用带有输入框的header-->
+    <div class="bar bar-header bar-positive item-input-inset">
+        <a class="button button-clear icon-right ion-ios-arrow-down">北京</a>
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="搜索">
+        </label>
+    </div>
+    <!--
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">Header</h1>
+        <div class="button icon ion-settings"></div>
+    </div>
+    -->
+
+    <div class="bar bar-subheader bar-stable">
+        <div class="button-bar">
+            <a class="button button-balanced">新闻</a>
+            <a class="button button-clear">国内</a>
+            <a class="button button-clear">国际</a>
+            <a class="button button-clear">体育</a>
+            <a class="button button-clear">科技</a>
+        </div>
+    </div>
+
+    <div class="bar bar-footer bar-light">
+        <div class="button-bar">
+            <a class="button button-clear icon ion-ios-home-outline">新闻</a>
+            <a class="button button-clear icon ion-ios-compose-outline">发表</a>
+            <a class="button button-clear icon ion-ios-pulse">动态</a>
+            <a class="button button-clear icon ion-radio-waves">热点</a>
+        </div>
+    </div>
+
+</body>
+</html>
