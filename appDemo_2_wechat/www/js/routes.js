@@ -1,5 +1,5 @@
 //配置路由
-angular.module('wechat.routers',['wechat.controllers'])
+angular.module('wechat.routers',[])
 .config(function($stateProvider, $urlRouterProvider) {
     
     $stateProvider
@@ -28,7 +28,8 @@ angular.module('wechat.routers',['wechat.controllers'])
             url:'/friends',
             views: {
                 'tab-friends' : {
-                    templateUrl:'templates/tab-friends.html'
+                    templateUrl:'templates/tab-friends.html',
+                    controller:'friendsCtrl'
                 }
             }
         })
@@ -38,7 +39,8 @@ angular.module('wechat.routers',['wechat.controllers'])
             url:'/find',
             views: {
                 'tab-find' : {
-                    templateUrl:'templates/tab-find.html'
+                    templateUrl:'templates/tab-find.html',
+                    controller:'findCtrl'
                 }
             }
         })
@@ -48,9 +50,17 @@ angular.module('wechat.routers',['wechat.controllers'])
             url:'/setting',
             views: {
                 'tab-setting' : {
-                    templateUrl:'templates/tab-setting.html'
+                    templateUrl:'templates/tab-setting.html',
+                    controller:'settingCtrl'
                 }
             }
+        })
+
+        //消息详情页
+        .state('messageDetail', {
+            url:'/messageDetail/:messageId',
+            templateUrl:'templates/message-detail.html',
+            controller:'messageDetailCtrl'
         })
     //默认状态是tab.message
     $urlRouterProvider.otherwise("/tab/message")
