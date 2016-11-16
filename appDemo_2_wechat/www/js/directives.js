@@ -45,8 +45,24 @@ angular.module('wechat.directives', [])
     return {
         replace:false,
         link: function(scope, iElm, iAttrs, controller) {
+            console.log(iElm);
+            scope.$on('elastic:resize', function(event, element, oldHeight, newHeight) {
+
+                var scroll = document.body.querySelector("#message-detail-content");
+                var scrollBar = $ionicScrollDelegate.$getByHandle('messageDetailsScroll');
+                var newFooterHeight = newHeight + 10;
+                //footerHeight的高度最多为44,
+                newFooterHeight = (newFooterHeight > 44) ? newFooterHeight : 44;
+                iElm[0].style.height = newFooterHeight + 'px';
+
+                //下面两行，解决键盘弹出覆盖聊天内容的bug
+                //增加聊天内容区高度
+                scroll.style.bottom = newFooterHeight + 'px';
+                //滚动到底部
+                scrollBar.scrollBottom();
+            });
             //绑定taResize事件，接收子控制器传上来的数据
-            scope.$on("taResize", function(e, ta) {
+            /*scope.$on("taResize", function(e, ta) {
                 //console.log(ta);
                 if(!ta) return;
                 var scroll = document.body.querySelector("#message-detail-content");
@@ -63,7 +79,7 @@ angular.module('wechat.directives', [])
                 scroll.style.bottom = newFooterHeight + 'px';
                 //滚动到底部
                 scrollBar.scrollBottom();
-            })
+            })*/
         }
     }
 }])
